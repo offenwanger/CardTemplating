@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'DefaultFont';
+    src: url('../lib/fonts/IndieFlower-Regular.ttf');
+}
+
+html {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    touch-action: none;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    user-select: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+button {
+    font-family: "DefaultFont", Times, serif;
+    font-size: 20px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
+table {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+button:hover {
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+#dashboard-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+#dashboard-container>div {
+    position: relative;
+    border: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.canvas-container canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#settings-view-container {
+    position: absolute;
+    overflow: scroll;
+    bottom: 0;
+    right: 0;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+}
+
+#interface-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#color-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
