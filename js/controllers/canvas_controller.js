@@ -177,7 +177,7 @@ export function CanvasController(mColorMap) {
                 mSelection = [];
             }
             mModel.getTexts().forEach(text => {
-                let textWidth = mDrawingUtil.getTextWidth({ text: PLACEHOLDER_TEXT, height: text.size, font: text.font });
+                let textWidth = mDrawingUtil.getTextWidth({ text: PLACEHOLDER_TEXT + "#", height: text.size, font: text.font });
                 let boundingPath = boundingBoxToPath({ x: text.x, y: text.y, width: textWidth, height: text.size });
                 let coveredPoints = boundingPath.reduce((count, p) => {
                     if (interfaceIsCovered(modelToScreenCoords(p))) { count++; }
@@ -248,7 +248,7 @@ export function CanvasController(mColorMap) {
         mModel.getImgs().forEach(img => {
             mDrawingUtil.drawImage(img);
         })
-        mModel.getTexts().forEach(text => {
+        mModel.getTexts().forEach((text, index) => {
             let x = text.x;
             let y = text.y;
             if (mInteraction && mInteraction.type == DRAGGING && mSelection.includes(text.id)) {
@@ -261,7 +261,7 @@ export function CanvasController(mColorMap) {
                 size: text.size,
                 height: text.size,
                 color: mSelection.includes(text.id) ? "red" : "black",
-                text: PLACEHOLDER_TEXT,
+                text: PLACEHOLDER_TEXT + index,
                 code: mCodeUtil.getCode(text.id)
             });
         })
