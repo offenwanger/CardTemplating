@@ -24,18 +24,8 @@ export function DashboardController() {
     activateStateButtons();
 
     let mDeleteCallback = () => { };
-    let mCalculateSpineCallback = () => { };
     let mUndoCallback = () => { };
     let mRedoCallback = () => { };
-    let mUpdateCategoryNameCallback = () => { };
-    let mUpdateDimensionNameCallback = () => { };
-    let mUpdateDimensionDomainCallback = () => { };
-    let mUpdateDimensionTypeCallback = () => { };
-    let mUpdateDimensionChannelCallback = () => { };
-    let mUpdateDimensionLevelCallback = () => { };
-    let mUpdateAngleTypeCallback = () => { };
-    let mUpdateSizeTypeCallback = () => { };
-    let mUpdateColorCallback = () => { };
     let mLoadModelCallback = async () => { };
 
     function modelUpdate(model) {
@@ -176,5 +166,6 @@ export function DashboardController() {
         setNewTextCallback: (func) => mCanvasController.setNewTextCallback(func),
         setTableEditedCallback: (func) => mSettingsController.setTableEditedCallback(func),
         setTranslateCallback: (func) => mCanvasController.setTranslateCallback(func),
+        setDeleteCallback: (func) => mDeleteCallback = func,
     }
 }

@@ -5,6 +5,7 @@ import { DataModel } from "./data_model.js";
 import { Data } from "./data_structs.js";
 import { EventManager } from "./event_manager.js";
 import { FileHandler } from "./file_handler.js";
+import { IdUtil } from "./utils/id_util.js";
 
 document.addEventListener('DOMContentLoaded', function (e) {
     let mModelController = new ModelController();
@@ -65,6 +66,16 @@ document.addEventListener('DOMContentLoaded', function (e) {
     mDashboardController.setTranslateCallback((selectionIds, translate) => {
         selectionIds.forEach(id => {
             mModelController.translate(id, translate);
+        })
+        mDashboardController.modelUpdate(mModelController.getModel());
+        mVersionController.stack(mModelController.getModel().toObject());
+    })
+
+    mDashboardController.setDeleteCallback((selectionIds) => {
+        selectionIds.forEach(id => {
+            if (IdUtil.isType(id, Data.Text)) {
+                mModelController.removeText(id);
+            }
         })
         mDashboardController.modelUpdate(mModelController.getModel());
         mVersionController.stack(mModelController.getModel().toObject());

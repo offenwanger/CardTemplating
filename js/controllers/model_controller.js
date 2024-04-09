@@ -13,6 +13,7 @@ export function ModelController() {
     function removeText(textId) {
         if (!IdUtil.isType(textId, Data.Text)) { console.error("Invalid text id", textId); return; }
         mDataModel.setTexts(mDataModel.getTexts().filter(d => d.id != textId));
+        mDataModel.setDataCells(mDataModel.getDataCells().filter(c => c.col != textId));
     }
 
     function updateText(text) {

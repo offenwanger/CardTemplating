@@ -25,6 +25,10 @@ export let VectorUtil = function () {
         }
     }
 
+    function length(v) {
+        return Math.sqrt(v.x * v.x + v.y * v.y)
+    }
+
     function isCoord(v) {
         return v && isNumeric(v.x) && isNumeric(v.y);
     }
